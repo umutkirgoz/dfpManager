@@ -1,0 +1,26 @@
+{
+  "name": "mynetreklam/dfpmanager",
+  "description": "DFP Integration for Mynet",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Umut KIRGOZ",
+      "email": "umut.kirgoz@mynetgroup.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MynetReklam\\DfpManager\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "illuminate/config": "^5.3"
+  }
+}
