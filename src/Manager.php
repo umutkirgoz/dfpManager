@@ -29,7 +29,7 @@ class Manager
     public function getHead(){
         $scripts = [];
         $scripts[] = '<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>';
-        $scripts[] = '<script>var dfpManager = {networkId : "'.$this->networkId.'"};</script>';
+        $scripts[] = '<script>'.$this->repository->getJsonConfig().'</script>';
         $scripts[] = '<script src="src/assets/js/dfp.js"></script>';
 
         echo implode("\n\t",$scripts);

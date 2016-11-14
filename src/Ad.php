@@ -58,6 +58,8 @@ class Ad {
             throw new Exception(self::$errors['SLOT_SIZES_NOT_FOUND']);
         }
         $this->sizes = implode('|',$this->_data['sizes']);
+
+        $this->_attribs['data-sizes'] = $this->sizes;
     }
 
     private function setType(){
@@ -71,8 +73,8 @@ class Ad {
 
     private function setClass(){
         $class = [];
-        if (isset($this->_params['slotClass'])){
-            $class[] = $this->_params['slotClass'];
+        if (isset($this->_params['globalClass'])){
+            $class[] = $this->_params['globalClass'];
         }
         if (!empty($this->_data['class'])){
             $class[] = $this->_data['class'];
@@ -80,7 +82,7 @@ class Ad {
 
         $this->class = implode(' ',$class);
 
-        $this->_attribs['data-class'] = $this->class;
+        $this->_attribs['class'] = $this->class;
     }
 
     private function setEndless(){

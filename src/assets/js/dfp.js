@@ -3,13 +3,23 @@
     w.googletag = w.googletag || {};
     w.googletag.cmd = w.googletag.cmd || [];
 
+    var globalClass;
+
     var placements;
-    $(function(){
-        placements = $('.mydfp');
+    $(function() {
         init();
     });
+
     function init(){
+
+        globalClass = dfpManager.globalClass;
+
+
+        placements = $('.' + globalClass);
+
         console.log(placements);
+
+
 
 
         googletag.cmd.push(function() {
@@ -27,13 +37,18 @@
 
 
     function buildSlots() {
-        $.each(placements, function(){
+        placements.each(function(){
             var $this = $(this);
+
+
             console.log($this.data());
 
-            var code = '/'+myDfp.networkId+'/'+$this.data('slot-code');
+            var code = '/'+dfpManager.networkId+'/'+$this.data('code');
 
-            var s = $this.data('slot-sizes').split('|'), sizes = [],ss;
+
+
+
+            var s = $this.data('sizes').split('|'), sizes = [],ss;
             for (var i=0;i<s.length;i++){
                 ss = s[i].split(',');
                 ss[0] = parseInt(ss[0]);

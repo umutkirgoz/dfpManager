@@ -17,7 +17,15 @@ class Repository
         $config = require($configPath);
 
         $this->config = new Config( $config );
+    }
 
+    public function getJsonConfig(){
+        $dfpManager = [
+            'networkId'     =>  $this->config->get('networkId'),
+            'globalClass'   =>  $this->config->get('globalClass')
+        ];
+
+        return 'var dfpManager = '.json_encode($dfpManager);
     }
 
     public function getNetworkId(){
@@ -33,7 +41,7 @@ class Repository
             throw new \Exception(self::$errors['SLOT_NOT_FOUND']);
         }
 
-        $ad = new Ad($slotData, ['slotClass' => $this->config->get('slotClass')]);
+        $ad = new Ad($slotData, ['globalClass' => $this->config->get('globalClass')]);
 
         $code = $this->getCode($ad);
 

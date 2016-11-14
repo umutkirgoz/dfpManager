@@ -8,7 +8,7 @@
 
 return [
     'networkId' =>  '28687765',
-    'slotClass' =>  'my-dfp',
+    'globalClass' =>  'my-dfp',
     'mappings' => [
 
     ],
